@@ -1,0 +1,494 @@
+.header-CreateLicense {
+    background-color: var(--v3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.header-CreateLicense label {
+    color: var(--v4);
+}
+.create-license-container {
+    background-color:var(--v2);
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+#request-label,
+#license-label,
+#search-label {
+    color: var(--v3);
+}
+.type-conatiner {
+    margin-top: 14px;
+    margin-left: 16px;
+}
+#mat-icon {
+    margin-left: 354px;
+    margin-top: 6px;
+}
+#production-button {
+    width: 125px;
+    height: 30px;
+    background-image: linear-gradient(to bottom, var(--v1) 0%, var(--v3) 100%, var(--v1) 100%);
+    margin-left: -22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px var(--v3);    
+}
+#custom-button {
+    width: 125px;
+    height: 30px;
+    background-image: linear-gradient(to bottom, var(--v1) 0%, var(--v3) 100%, var(--v1) 100%);
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px  var(--v3);
+}
+#selected-license,
+#selected-request,
+#selected-search {
+    font-size: 14px;
+    color: var(--v4);
+    margin-left: -3px;
+}
+.dropdown-types {
+    width: 124px;
+    margin-left: -22px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+}
+.dropdown-system {
+    width: 123.2px;
+    margin-left: 0px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+}
+.dropdown-system a {
+    color: var(--v3);
+    width: 116px;
+    padding-left: 7px;
+    cursor: pointer;
+}
+.dropdown-dealer {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.dropdown-reseller {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.dropdown-region {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.dropdown-customer {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.dropdown-Version {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.dropdown-modules {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.dropdown-installation {
+    width: 200px;
+    margin-left: 117px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+.show-dropdown {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--v3);
+}
+.dropdown-types a {
+    color: var(--v3);
+    width: 116px;
+    padding-left: 7px;
+    cursor: pointer;
+}
+.license-type-conatiner {
+    margin-top: 14px;
+    margin-left: 18px;
+}
+.search-conatiner {
+    margin-left: 17px;
+    margin-top: 14px;
+}
+.searchButton {
+    background-color: var(--v4);
+    color: var(--v6);
+    margin-left: -43px;
+    margin-top: 3px;
+    height: 33px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+}
+.search-input-container {
+    margin-top: 29px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-color: var(--v3);
+}
+.search-input-container .material-symbols-outlined {
+    color: var(--v7);
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    transform: translateY(-50%);
+}
+#search-label {
+    margin-bottom: 15px;
+    margin-left: 13px;
+}
+.search-drop-down {
+    margin-left: -22px;
+    margin-top: 34px;
+}
+.next-button {
+    display: flex;
+    align-items: center;
+}
+#next-button {
+    display: flex;
+    background-color: var(--v3);
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    color: var(--v4);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+#next-button mat-icon {
+    color: var(--v4);
+}
+.search-input-container input {
+    margin-top: 5px;
+    height: 25px;
+    width: 271px;
+    padding-right: 30px;
+    margin-left: -10px;
+}
+.read-only {
+    pointer-events: none;
+    opacity: 0.5;
+}
+#back-button {
+    display: flex;
+    background-color: var(--v8);
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    color: var(--v4);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+#back-button-ok {
+    display: flex;
+    background-color: var(--v3);
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    color: var(--v4);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.license-details {
+    display: flex;
+    margin-left: 18px;
+    margin-top: 8px;
+}
+.coloum-customer,
+.coloum-license {
+    height: 331px;
+    background-color: var(--v1);
+    margin-right: 20px;
+}
+.coloum-license {
+    margin-right: 0;
+}
+.coloum-customer {
+    display: flex;
+    flex-direction: column;
+    max-height: 331px;
+    overflow: auto;
+}
+.customer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.mat-form-field,
+input.mat-input,
+.productionButton {
+    width: 200px;
+    height: 28px;
+    margin-right: 10px;
+}
+.label-container {
+    width: 200px;
+    margin-right: 10px;
+}
+.input-container {
+    flex: 1;
+}
+.system-container label,
+.DEMO-containers label,
+.AMC-label,
+.Active-container label,
+.Mac-container label,
+.resellers-container label,
+.dealer-container label,
+.customer-container label,
+.Product-container label,
+.product-date-container label,
+.region-container label,
+.modules-container label,
+.Version-container label,
+.machine-count-container label {
+    font-size: 14px;
+    color: var(--v3);
+}
+.system-container {
+    margin-top: 15px;
+    margin-left: 14px;
+}
+.DEMO-containers {
+    margin-top: -50px;
+    margin-left: 169px;
+}
+.dealer-container {
+    margin-top: 15px;
+    margin-left: 14px;
+}
+.resellers-container {
+    margin-top: -6px;
+    margin-left: 14px;
+}
+.customer-container-relative,
+.dealer-container-relative,
+.region-container-relative,
+.Version-container-relative,
+.modules-container-relative,
+.reseller-container-relative {
+    position: relative;
+}
+#dealer-button {
+    width: 200px;
+    height: 28px;
+    margin-left: 37px;
+    background-color: var(--v4);
+    color: var(--v3);
+    border: none;
+    overflow: hidden;
+}
+#reseller-button {
+    width: 200px;
+    height: 28px;
+    margin-left: 17px;
+    background-color: var(--v4);
+    color: var(--v3);
+    border: none;
+    overflow: hidden;
+}
+.customer-container {
+    margin-left: 14px;
+    margin-top: 7px;
+}
+#customer-button {
+    margin-left: 16px;
+    background-color: var(--v4);
+    border: none;
+    overflow: hidden;
+}
+.Mac-container {
+    margin-left: 14px;
+    margin-top: 7px;
+}
+#Mac-button {
+    margin-left: 54px;
+    width: 200px;
+    height: 25px;
+    background-color: var(--v4);
+    border: none;
+}
+.Product-container {
+    margin-left: 14px;
+    margin-top: 7px;
+}
+#Product-button {
+    margin-left: 59px;
+    width: 197px;
+    height: 25px;
+    background-color: var(--v4);
+    border: none;
+}
+.Active-container,
+.product-date-container,
+.modules-container,
+.Version-container,
+.machine-count-container {
+    margin-left: 14px;
+    margin-top: 7px;
+}
+::ng-deep .mat-mdc-text-field-wrapper {
+    width: 202px !important;
+    margin-left: 64px !important;
+}
+.region-container {
+    margin-left: 14px;
+    margin-top: 9px;
+}
+#region-button {
+    margin-left: 73px;
+    background-color: var(--v4);
+    border: none;
+}
+#Active-button {
+    margin-left: 16px;
+    background-color: var(--v4);
+    border: none;
+}
+#modules-button {
+    margin-left: 62px;
+    background-color: var(--v4);
+    border: none;
+}
+#Version-button {
+    margin-left: 69px;
+    width: 200px;
+    height: 22px;
+    background-color: var(--v4);
+    border: none;
+}
+#machine-count-button {
+    margin-left: 20px;
+    width: 196px;
+    height: 22px;
+    background-color: var(--v4);
+    border: none;
+}
+#Product-date {
+    margin-left: 65px;
+    width: 200px;
+    height: 28px;
+    background-color: var(--v4);
+    border: none;
+    color: var(--v3);
+}
+#arrow_dealer_name,
+#arrow_customer_name,
+#arrow_region_name,
+#arrow_modules_name {
+    background-color: var(--v4);
+}
+#arrow_modules {
+    background-color: transparent;
+}
+.dropdown-item {
+    border-bottom: 1px solid var(--v3);
+    color: var(--v3);
+    overflow: hidden;
+}
+.coloum-license {
+    width: 400px;
+}
+.AMC {
+    display: flex;
+    margin-top: 42px;
+    margin-left: 15px;
+}
+.date-picker {
+    margin-top: 39px;
+    margin-left: -113px;
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-image: linear-gradient(to bottom, var(--v1) 0%, var(--v3) 100%, var(--v1) 100%) !important;
+}
+#system-dropdown {
+    width: 125px;
+    height: 30px;
+    background-image: linear-gradient(to bottom, var(--v5) 0%, var(--v3) 100%, var(--v5) 100%);
+    color: var(--v4);
+}
+.system-dropdown option {
+    width: 200px;
+}
+
+/* .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  } */
+  .checkbox-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.feature-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

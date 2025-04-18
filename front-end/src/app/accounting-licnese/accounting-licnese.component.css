@@ -1,0 +1,217 @@
+.header-accounting {
+    /* background-color: #52674F; */
+    background-color: var(--v3);
+    color: var(--v4);
+}
+.accounting-conatiners {
+    padding-left: 8px;
+    width: 100%;
+    border: 1px solid var(--v5);
+    height: 25px;
+    background-color: var(--v1);
+}
+.accounting-conatiners input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+}
+.accounting-conatiners input:focus {
+    border: none !important;
+    outline: none !important;
+}
+.checkbox-Avaya-cm{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Avaya-cm-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-Avaya-ip{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Avaya-ip-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-Cisco{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Cisco-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-Cisco-express{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Cisco-express-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-Nortel{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Nortel-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-Alcatel{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Alcatel-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-Panasonic{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Panasonic-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-NEC{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.NEC-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-Siemens{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Siemens-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-Matrix{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Matrix-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-Huawei{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Huawei-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-Mitel{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Mitel-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-Microsoft{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Microsoft-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+

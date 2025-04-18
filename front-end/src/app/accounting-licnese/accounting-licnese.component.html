@@ -1,0 +1,237 @@
+<div class="header-accounting">
+    <label style="margin-left: 10px;">Accounting</label>
+</div>
+@if (accounting_data[0] == 'Accounting') {
+<div class="account-scroll" style="overflow: auto;height: 304px;overflow-x: hidden">
+    <div style="display: flex;">
+        <div style="width: 40%;">
+            <div class="accounting-conatiners">Extension</div>
+            <div class="accounting-conatiners" style="background-color: var(--v4);">Branch</div>
+            <div class="accounting-conatiners">Department</div>
+        </div>
+        <div style="width: 58%;">
+            <div class="accounting-conatiners"> 
+                <input (input)="account_values()" [(ngModel)]="Extension_Value" type="number" min="0" max="9999">
+            </div>
+            <div class="accounting-conatiners" style="background-color: var(--v4);"> 
+                <input type="number" min="0" max="255" (input)="account_values()" [(ngModel)]="Branch_Value">
+            </div>
+            <div class="accounting-conatiners"> 
+                <input type="number" min="0" max="4095" (input)="account_values()" [(ngModel)]="Department_Value">
+            </div>
+        </div>
+    </div>
+    <div class="header-accounting">
+        <label style="margin-left: 310px;">PBX Type</label>
+    </div>
+
+    <!-- Avaya CM -->
+    <div class="Avaya-cm" style="display: flex;">
+        <div class="input-Avaya-cm" style="background-color: var(--v4);">
+            <input class="checkbox-Avaya-cm" type="checkbox" [(ngModel)]="isAvayaCMChecked" (change)="AvayaCM_status()" >
+        </div>
+        <div class="Avaya-cm-label">Avaya CM</div>
+    </div>
+    <!-- Avaya IP Office -->
+    <div class="Avaya-ip" style="display: flex;">
+        <div class="input-Avaya-ip" style="background-color: var(--v1);">
+            <input class="checkbox-Avaya-ip" type="checkbox" [(ngModel)]="isAvayaIPChecked" (change)="AvayaIP_status()">
+        </div>
+        <div class="Avaya-ip-label">Avaya IP Office</div>
+    </div>
+    <!-- Cisco CUCM -->
+    <div class="Cisco" style="display: flex;">
+        <div class="input-Cisco" style="background-color: var(--v4);">
+            <input class="checkbox-Cisco" type="checkbox" [(ngModel)]="isCUCMChecked" (change)="CUCM_status()">
+        </div>
+        <div class="Cisco-label">Cisco CUCM</div>
+    </div>
+    <!-- Cisco IP CUCM Express -->
+    <div class="Cisco-express" style="display: flex;">
+        <div class="input-Cisco-express" style="background-color: var(--v1);">
+            <input class="checkbox-Cisco-express" type="checkbox" [(ngModel)]="isCUCMExpressChecked" (change)="CUCMExpress_status()">
+        </div>
+        <div class="Cisco-express-label">Cisco CUCM Express</div>
+    </div>
+    <!-- Nortel -->
+    <div class="Nortel" style="display: flex;">
+        <div class="input-Nortel" style="background-color: var(--v4);">
+            <input class="checkbox-Nortel" type="checkbox" [(ngModel)]="isNortelChecked" (change)="Nortel_status()">
+        </div>
+        <div class="Nortel-label">Nortel</div>
+    </div>
+    <!-- Alcatel -->
+    <div class="Alcatel" style="display: flex;">
+        <div class="input-Alcatel" style="background-color: var(--v1);">
+            <input class="checkbox-Alcatel" type="checkbox" [(ngModel)]="isAlcatelChecked" (change)="Alcatel_status()">
+        </div>
+        <div class="Alcatel-label">Alcatel</div>
+    </div>
+    <!-- Panasonic -->
+    <div class="Panasonic" style="display: flex;">
+        <div class="input-Panasonic" style="background-color: var(--v4);">
+            <input class="checkbox-Panasonic" type="checkbox" [(ngModel)]="isPanasonicChecked" (change)="Panasonic_status()">
+        </div>
+        <div class="Panasonic-label">Panasonic</div>
+    </div>
+    <!-- NEC -->
+    <div class="NEC" style="display: flex;">
+        <div class="input-NEC" style="background-color: var(--v1);">
+            <input class="checkbox-NEC" type="checkbox" [(ngModel)]="isNECChecked" (change)="NEC_status()">
+        </div>
+        <div class="NEC-label">NEC</div>
+    </div>
+    <!-- Siemens -->
+    <div class="Siemens" style="display: flex;">
+        <div class="input-Siemens" style="background-color: var(--v4);">
+            <input class="checkbox-Siemens" type="checkbox" [(ngModel)]="isSiemensChecked" (change)="Siemens_status()">
+        </div>
+        <div class="Siemens-label">Siemens</div>
+    </div>
+    <!-- Matrix -->
+    <div class="Matrix" style="display: flex;">
+        <div class="input-Matrix" style="background-color: var(--v1);">
+            <input class="checkbox-Matrix" type="checkbox" [(ngModel)]="isMatrixChecked" (change)="Matrix_status()">
+        </div>
+        <div class="Matrix-label">Matrix</div>
+    </div>
+    <!-- Huawei -->
+    <div class="Huawei" style="display: flex;">
+        <div class="input-Huawei" style="background-color: var(--v4);">
+            <input class="checkbox-Huawei" type="checkbox" [(ngModel)]="isHuaweiChecked" (change)="Huawei_status()">
+        </div>
+        <div class="Huawei-label">Huawei</div>
+    </div>
+    <!-- Mitel -->
+    <div class="Mitel" style="display: flex;">
+        <div class="input-Mitel" style="background-color: var(--v1);">
+            <input class="checkbox-Mitel" type="checkbox" [(ngModel)]="isMitelChecked" (change)="Mitel_status()">
+        </div>
+        <div class="Mitel-label">Mitel</div>
+    </div>
+    <!-- Microsoft Teams -->
+    <div class="Microsoft" style="display: flex;">
+        <div class="input-Microsoft" style="background-color: var(--v4);">
+            <input class="checkbox-Microsoft" type="checkbox" [(ngModel)]="isMicrosoftChecked" (change)="Microsoft_status()">
+        </div>
+        <div class="Microsoft-label">Microsoft</div>
+    </div>
+</div>
+}@else {
+
+<div>
+    <div style="display: flex;">
+        <div style="width: 40%;">
+            <div class="accounting-conatiners">Extension</div>
+            <div class="accounting-conatiners" style="background-color: var(--v4);">Branch</div>
+            <div class="accounting-conatiners">Department</div>
+        </div>
+        <div style="width: 58%;">
+            <div class="accounting-conatiners"> 
+                <input type="number" min="0" max="9999" (input)="account_values()" [(ngModel)]="Extension_Value">
+            </div>
+            <div class="accounting-conatiners" style="background-color: var(--v4);"> 
+                <input type="number" min="0" max="255" (input)="account_values()" [(ngModel)]="Branch_Value">
+            </div>
+            <div class="accounting-conatiners"> 
+                <input type="number" min="0" max="4095" (input)="account_values()" [(ngModel)]="Department_Value">
+            </div>
+        </div>
+    </div>
+    <div class="header-accounting">
+        <label style="margin-left: 310px;">PBX Type</label>
+    </div>
+
+    <!-- Avaya CM -->
+    <div class="Avaya-cm" style="display: flex;">
+        <div class="input-Avaya-cm" style="background-color: var(--v4);">
+            <input class="checkbox-Avaya-cm" type="checkbox" [(ngModel)]="isAvayaCMChecked" (change)="AvayaCM_status()">
+        </div>
+        <div class="Avaya-cm-label">Avaya CM</div>
+    </div>
+    <!-- Avaya IP Office -->
+    <div class="Avaya-ip" style="display: flex;">
+        <div class="input-Avaya-ip" style="background-color: var(--v1);">
+            <input class="checkbox-Avaya-ip" type="checkbox" [(ngModel)]="isAvayaIPChecked" (change)="AvayaIP_status()">
+        </div>
+        <div class="Avaya-ip-label">Avaya IP Office</div>
+    </div>
+    <!-- Cisco CUCM -->
+    <div class="Cisco" style="display: flex;">
+        <div class="input-Cisco" style="background-color: var(--v4);">
+            <input class="checkbox-Cisco" type="checkbox" [(ngModel)]="isCUCMChecked" (change)="CUCM_status()">
+        </div>
+        <div class="Cisco-label">Cisco CUCM</div>
+    </div>
+    <!-- Cisco IP CUCM Express -->
+    <div class="Cisco-express" style="display: flex;">
+        <div class="input-Cisco-express" style="background-color: var(--v1);">
+            <input class="checkbox-Cisco-express" type="checkbox" [(ngModel)]="isCUCMExpressChecked" (change)="CUCMExpress_status()">
+        </div>
+        <div class="Cisco-express-label">Cisco CUCM Express</div>
+    </div>
+    <!-- Nortel -->
+    <div class="Nortel" style="display: flex;">
+        <div class="input-Nortel" style="background-color: var(--v4);">
+            <input class="checkbox-Nortel" type="checkbox" [(ngModel)]="isNortelChecked" (change)="Nortel_status()">
+        </div>
+        <div class="Nortel-label">Nortel</div>
+    </div>
+    <!-- Alcatel -->
+    <div class="Alcatel" style="display: flex;">
+        <div class="input-Alcatel" style="background-color: var(--v1);">
+            <input class="checkbox-Alcatel" type="checkbox" [(ngModel)]="isAlcatelChecked" (change)="Alcatel_status()">
+        </div>
+        <div class="Alcatel-label">Alcatel</div>
+    </div>
+    <!-- Panasonic -->
+    <div class="Panasonic" style="display: flex;">
+        <div class="input-Panasonic" style="background-color: var(--v4);">
+            <input class="checkbox-Panasonic" type="checkbox" [(ngModel)]="isPanasonicChecked" (change)="Panasonic_status()">
+        </div>
+        <div class="Panasonic-label">Panasonic</div>
+    </div>
+    <!-- NEC -->
+    <div class="NEC" style="display: flex;">
+        <div class="input-NEC" style="background-color: var(--v1);">
+            <input class="checkbox-NEC" type="checkbox" [(ngModel)]="isNECChecked" (change)="NEC_status()">
+        </div>
+        <div class="NEC-label">NEC</div>
+    </div>
+    <!-- Siemens -->
+    <div class="Siemens" style="display: flex;">
+        <div class="input-Siemens" style="background-color: var(--v4);">
+            <input class="checkbox-Siemens" type="checkbox" [(ngModel)]="isSiemensChecked" (change)="Siemens_status()">
+        </div>
+        <div class="Siemens-label">Siemens</div>
+    </div>
+    <!-- Matrix -->
+    <div class="Matrix" style="display: flex;">
+        <div class="input-Matrix" style="background-color: var(--v1);">
+            <input class="checkbox-Matrix" type="checkbox" [(ngModel)]="isMatrixChecked" (change)="Matrix_status()">
+        </div>
+        <div class="Matrix-label">Matrix</div>
+    </div>
+    <!-- Huawei -->
+    <div class="Huawei" style="display: flex;">
+        <div class="input-Huawei" style="background-color: var(--v4);">
+            <input class="checkbox-Huawei" type="checkbox" [(ngModel)]="isHuaweiChecked" (change)="Huawei_status()">
+        </div>
+        <div class="Huawei-label">Huawei</div>
+    </div>
+    <!-- Mitel -->
+    <div class="Mitel" style="display: flex;">
+        <div class="input-Mitel" style="background-color: var(--v1);">
+            <input class="checkbox-Mitel" type="checkbox" [(ngModel)]="isMitelChecked" (change)="Mitel_status()">
+        </div>
+        <div class="Mitel-label">Mitel</div>
+    </div>
+    <!-- Microsoft Teams -->
+    <div class="Microsoft" style="display: flex;">
+        <div class="input-Microsoft" style="background-color: var(--v4);">
+            <input class="checkbox-Microsoft" type="checkbox" [(ngModel)]="isMicrosoftChecked" (change)="Microsoft_status()">
+        </div>
+        <div class="Microsoft-label">Microsoft</div>
+    </div>
+</div>
+}

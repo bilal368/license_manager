@@ -1,0 +1,324 @@
+.component-container {
+    padding: 4px;
+    padding: 4px;
+    height: 324px;
+    overflow: auto;
+}
+
+.left-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--v1);
+}
+
+.header-component {
+    background-color: var(--v3);
+    color: var(--v4);
+    width: 98px;
+    border: 1px solid var(--v5);
+    font-size: 14px;
+    padding-left: 3px;
+}
+
+.header-child {
+    background-color: var(--v3);
+    color: var(--v4);
+    width: 300px;
+    border: 1px solid var(--v5);
+    font-size: 14px;
+    padding-left: 7px;
+}
+
+.row-2 {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--v1);
+}
+
+.installation-button {
+    width: 293px;
+    background-color: var(--v1);
+    border: 1px solid var(--v5);
+}
+
+.installation {
+    color: var(--v3);
+    border: 1px solid var(--v5);
+    width: 112px;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+.Seats {
+    width: 98px;
+    color: var(--v3);
+    border: 1px solid var(--v5);
+    padding-left: 6px;
+    padding-top: 1.5px;
+}
+
+.row-3 {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--v4);
+
+}
+
+.seats-input {
+    height: 25px;
+    width: 300px;
+    border: 1px solid var(--v5);
+}
+
+.header-recorder {
+    background-color: var(--v3);
+    color: var(--v4);
+}
+
+.show-dropdown {
+    display: block;
+}
+
+.dropdown-installation {
+    width: 292px;
+    display: none;
+    position: absolute;
+    background-color: var(--v4);
+    border: none;
+}
+
+.show-dropdown {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px var(--v3);
+}
+
+.dropdown-item {
+    border-bottom: 1px solid var(--v3);
+    color: var(--v3);
+}
+
+.recorder-container {
+    color: var(--v3);
+}
+
+.Digital-label {
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+    border-bottom: 1px solid var(--v5);
+}
+
+.Passive-label {
+    height: 185px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+
+.Analog-label {
+    text-align: center;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+    border-bottom: 1px solid var(--v5);
+}
+
+.digital-conatiners {
+    padding-left: 8px;
+    width: 100%;
+    border: 1px solid var(--v5);
+    height: 25px;
+    background-color: var(--v1);
+}
+
+.digital-conatiners input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+}
+
+.digital-conatiners input:focus {
+    border: none !important;
+    outline: none !important;
+}
+
+.Passive-conatiners {
+    padding-left: 8px;
+    width: 100%;
+    border: 1px solid var(--v5);
+    height: 25px;
+    background-color: var(--v4);
+}
+
+.Passive-conatiners input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+}
+
+.Passive-conatiners input:focus {
+    border: none !important;
+    outline: none !important;
+}
+.Analog-conatiners{
+    padding-left: 8px;
+    width: 100%;
+    border: 1px solid var(--v5);
+    height: 25px;
+    background-color: var(--v1);
+}
+.Analog-conatiners input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+}
+
+.Analog-conatiners input:focus {
+    border: none !important;
+    outline: none !important;
+}
+.E1-label{
+    text-align: center;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid transparent;
+    background-color: var(--v4); 
+}
+.E1-conatiners{
+    padding-left: 8px;
+    width: 100%;
+    border: 1px solid var(--v5);
+    height: 25px;
+    background-color: var(--v4);
+}
+
+.E1-conatiners input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+}
+
+.E1-conatiners input:focus {
+    border: none !important;
+    outline: none !important;
+}
+.Active-label{
+    text-align: center;
+    height: 158px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+    border-bottom: 1px solid var(--v5);
+}
+.Active-conatiners{
+    padding-left: 8px;
+    width: 100%;
+    border: 1px solid var(--v5);
+    height: 25px;
+    background-color: var(--v1);
+}
+.Active-conatiners input {
+    width: 95%;
+    background-color: transparent;
+    border: none;
+}
+.Active-conatiners input:focus {
+    border: none !important;
+    outline: none !important;
+}
+
+.SMS-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-SMS{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.EMC-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-EMC{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.checkbox-Screen{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.Screen-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+.checkbox-AQM{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.AQM-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v1);
+}
+.checkbox-FAX{
+    margin-left: 32px;
+    margin-right: 31px;
+}
+.FAX-label{
+    margin-left: 1px;
+    text-align: center;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: var(--v4);
+}
+

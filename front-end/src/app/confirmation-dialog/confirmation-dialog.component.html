@@ -1,0 +1,15 @@
+<div class="dialog-header">
+    <label  mat-dialog-title>Confirm Deletion</label>
+    <mat-icon id="mat-icon" style="color: var(--v3);background-color: var(--v4);cursor: pointer;"
+    (click)="onCancel()">
+    close
+</mat-icon>
+  </div>
+  <div mat-dialog-content style="padding: 6px;">
+    <p>Are you sure you want to delete this user?</p>
+  </div>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onCancel()" class="cancel-button">Cancel</button>
+    <button mat-button (click)="onConfirm()" class="confirm-button">Delete</button>
+  </div>
+  

@@ -1,0 +1,354 @@
+<div class="component-container" (click)="handleClick($event)">
+    @if (fromaddLicense[0] == 'Recorder & Accounting') {
+    <div class="left-container">
+        <div class="header-component">Components</div>
+        <div class="header-child">Child Components</div>
+    </div>
+    <div class="row-2">
+        <div class="installation">Installation</div>
+        <div>
+            <div class="installation-button">
+                <button class="installation-button ovelButton" style="border: none;"
+                    (click)="toggleDropdown_installation()">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label id="selected-installation" style="color: var(--v3);">{{selectedinstallation}}</label>
+                        <mat-icon id="arrow_modules" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+            </div>
+
+            <div class="dropdown-installation" [ngClass]="{ 'show-dropdown': showDropdown_installation }">
+                <a (click)="selectInstallation('Stand Alone')" class="dropdown-item">StandAlone</a>
+                <a (click)="selectInstallation('StandAloneClient')" class="dropdown-item">StandAloneClient</a>
+                <a (click)="selectInstallation('Client')" class="dropdown-item">Client</a>
+                <a (click)="selectInstallation('Server')" class="dropdown-item">Server</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-3">
+        <div class="Seats">Seats</div>
+        <div class="seats-input">
+            <input type="number" (input)="recorder_values()" min="0" [(ngModel)]="seatsValue" style="border: none;
+            width: 289px;
+            height: 23px;">
+        </div>
+    </div>
+
+    <!-- DGvox features -->
+    <div class="recorder-container">
+        <div class="header-recorder">
+            <label style="margin-left: 250px;"> Number of Channels</label>
+        </div>
+        <div style="overflow: auto;height: 227px;overflow-x: hidden">
+            <!-- Digital -->
+            <div style="display: flex;">
+                <div class="Digital-label">
+                    Digital
+                </div>
+                <div style="width: 40%;">
+                    <div class="digital-conatiners">NGX</div>
+                    <div class="digital-conatiners">ShCTI</div>
+                    <div class="digital-conatiners">Nortel</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="digital-conatiners"> <input (input)="recorder_values()" [(ngModel)]="NGXValue" type="number" min="0"></div>
+                    <div class="digital-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ShCTIValue" type="number" min="0"></div>
+                    <div class="digital-conatiners"> <input (input)="recorder_values()" [(ngModel)]="NortelValue" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- Passive -->
+            <div style="display: flex; background-color: var(--v4);">
+                <div class="Passive-label">
+                    Passive IP
+                </div>
+                <div style="width: 40%;">
+                    <div class="Passive-conatiners">HPX</div>
+                    <div class="Passive-conatiners">GSM</div>
+                    <div class="Passive-conatiners">VOX IP</div>
+                    <div class="Passive-conatiners">Synway</div>
+                    <div class="Passive-conatiners">SipTrunk</div>
+                    <div class="Passive-conatiners">Avaya IP</div>
+                    <div class="Passive-conatiners">Astrisk</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="HPXValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="GSMValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="VOXValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="SynwayValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="SipTrunkValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AvayaValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AstriskValue" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- Analog Recorder -->
+            <div style="display: flex;">
+                <div class="Analog-label">
+                    Analog Recorder
+                </div>
+                <div style="width: 40%;">
+                    <div class="Analog-conatiners">Analog ShCTI</div>
+                    <div class="Analog-conatiners">Analog Ocha</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="Analog-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AnalogShCTI_Value" type="number" min="0"></div>
+                    <div class="Analog-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AnalogOcha_Value" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- E1 Recorder -->
+            <div style="display: flex;">
+                <div class="E1-label">
+                    E1 Recorder
+                </div>
+                <div style="width: 40%;">
+                    <div class="E1-conatiners">E1 ShCTI</div>
+                    <div class="E1-conatiners">E1 Ocha</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="E1-conatiners"> <input (input)="recorder_values()" [(ngModel)]="E1ShCTI_Value" type="number" min="0"></div>
+                    <div class="E1-conatiners"> <input (input)="recorder_values()" [(ngModel)]="E1Ocha_Value" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- Active IP Recorder -->
+            <div style="display: flex;">
+                <div class="Active-label">
+                    Active IP Recorder
+                </div>
+                <div style="width: 40%;">
+                    <div class="Active-conatiners">Active Avaya</div>
+                    <div class="Active-conatiners">Active Cisco</div>
+                    <div class="Active-conatiners">Active Nortel</div>
+                    <div class="Active-conatiners">ED137 Recorder</div>
+                    <div class="Active-conatiners">Active NEC</div>
+                    <div class="Active-conatiners">Active BCM</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveAvaya_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveCisco_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveNortel_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ED137Recorder" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveNEC_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveBCM_Value" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- SMS -->
+            <div class="SMS" style="display: flex;">
+                <div class="input-SMS" style="background-color: var(--v4);">
+                    <input class="checkbox-SMS" type="checkbox" [(ngModel)]="isSMSChecked" (change)="SMS_status()">
+                </div>
+                <div class="SMS-label">SMS</div>
+            </div>
+            <!-- EMC Centera -->
+            <div class="EMC" style="display: flex;">
+                <div class="input-EMC" style="background-color: var(--v1);">
+                    <input class="checkbox-EMC" type="checkbox" [(ngModel)]="isEMCChecked" (change)="EMC_status()">
+                </div>
+                <div class="EMC-label">EMC Centera</div>
+            </div>
+            <!-- Screen Capture -->
+            <div class="Screen" style="display: flex;">
+                <div class="input-Screen" style="background-color: var(--v4);">
+                    <input class="checkbox-Screen" type="checkbox" [(ngModel)]="isScreenChecked" (change)="Screen_status()">
+                </div>
+                <div class="Screen-label">Screen Capture</div>
+            </div>
+            <!-- AQM -->
+            <div class="AQM" style="display: flex;">
+                <div class="input-AQM" style="background-color: var(--v1);">
+                    <input class="checkbox-AQM" type="checkbox" [(ngModel)]="isAQMChecked" (change)="AQM_status()">
+                </div>
+                <div class="AQM-label">AQM</div>
+            </div>
+            <!-- FAX -->
+            <div class="FAX" style="display: flex;">
+                <div class="input-FAX" style="background-color: var(--v4);">
+                    <input class="checkbox-FAX" type="checkbox" [(ngModel)]="isFAXChecked" (change)="FAX_status()">
+                </div>
+                <div class="FAX-label">FAX</div>
+            </div>
+            <app-accounting-licnese [accounting_data]="[fromaddLicense[0],AccountFeatures,this.backaccounding]"></app-accounting-licnese>
+
+        </div>
+    </div>
+    }
+    @else if (fromaddLicense[0] == 'Accounting') {
+    <app-accounting-licnese [accounting_data]="[fromaddLicense[0],AccountFeatures,this.backaccounding]"></app-accounting-licnese>
+    }@else if(fromaddLicense[0] == 'Recorder'){
+    <div class="left-container">
+        <div class="header-component">Components</div>
+        <div class="header-child">Child Components</div>
+    </div>
+    <div class="row-2">
+        <div class="installation">Installation</div>
+        <div>
+            <div class="installation-button">
+                <button class="installation-button ovelButton" style="border: none;"
+                    (click)="toggleDropdown_installation()">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label id="selected-installation" style="color: var(--v3);">{{selectedinstallation}}</label>
+                        <mat-icon id="arrow_modules" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+            </div>
+
+            <div class="dropdown-installation" [ngClass]="{ 'show-dropdown': showDropdown_installation }">
+                <a (click)="selectInstallation('Stand Alone')" class="dropdown-item">StandAlone</a>
+                <a (click)="selectInstallation('StandAloneClient')" class="dropdown-item">StandAloneClient</a>
+                <a (click)="selectInstallation('Client')" class="dropdown-item">Client</a>
+                <a (click)="selectInstallation('Server')" class="dropdown-item">Server</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-3">
+        <div class="Seats">Seats</div>
+        <div class="seats-input">
+            <input type="number" (input)="recorder_values()" min="0" [(ngModel)]="seatsValue" style="border: none;
+            width: 289px;
+            height: 23px;">
+        </div>
+    </div>
+
+    <!-- DGvox features -->
+    <div class="recorder-container">
+        <div class="header-recorder">
+            <label style="margin-left: 250px;"> Number of Channels</label>
+        </div>
+        <div class="recorder-scroll" style="overflow: auto;height: 227px;overflow-x: hidden">
+            <!-- Digital -->
+            <div style="display: flex;">
+                <div class="Digital-label">
+                    Digital
+                </div>
+                <div style="width: 40%;">
+                    <div class="digital-conatiners">NGX</div>
+                    <div class="digital-conatiners">ShCTI</div>
+                    <div class="digital-conatiners">Nortel</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="digital-conatiners"> <input (input)="recorder_values()" [(ngModel)]="NGXValue" type="number" min="0"></div>
+                    <div class="digital-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ShCTIValue" type="number" min="0"></div>
+                    <div class="digital-conatiners"> <input (input)="recorder_values()" [(ngModel)]="NortelValue" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- Passive -->
+            <div style="display: flex; background-color: var(--v4);">
+                <div class="Passive-label">
+                    Passive IP
+                </div>
+                <div style="width: 40%;">
+                    <div class="Passive-conatiners">HPX</div>
+                    <div class="Passive-conatiners">GSM</div>
+                    <div class="Passive-conatiners">VOX IP</div>
+                    <div class="Passive-conatiners">Synway</div>
+                    <div class="Passive-conatiners">SipTrunk</div>
+                    <div class="Passive-conatiners">Avaya IP</div>
+                    <div class="Passive-conatiners">Astrisk</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="HPXValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="GSMValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="VOXValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="SynwayValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="SipTrunkValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AvayaValue" type="number" min="0"></div>
+                    <div class="Passive-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AstriskValue" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- Analog Recorder -->
+            <div style="display: flex;">
+                <div class="Analog-label">
+                    Analog Recorder
+                </div>
+                <div style="width: 40%;">
+                    <div class="Analog-conatiners">Analog ShCTI</div>
+                    <div class="Analog-conatiners">Analog Ocha</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="Analog-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AnalogShCTI_Value" type="number" min="0"></div>
+                    <div class="Analog-conatiners"> <input (input)="recorder_values()" [(ngModel)]="AnalogOcha_Value" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- E1 Recorder -->
+            <div style="display: flex;">
+                <div class="E1-label">
+                    E1 Recorder
+                </div>
+                <div style="width: 40%;">
+                    <div class="E1-conatiners">E1 ShCTI</div>
+                    <div class="E1-conatiners">E1 Ocha</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="E1-conatiners"> <input (input)="recorder_values()" [(ngModel)]="E1ShCTI_Value" type="number" min="0"></div>
+                    <div class="E1-conatiners"> <input (input)="recorder_values()" [(ngModel)]="E1Ocha_Value" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- Active IP Recorder -->
+            <div style="display: flex;">
+                <div class="Active-label">
+                    Active IP Recorder
+                </div>
+                <div style="width: 40%;">
+                    <div class="Active-conatiners">Active Avaya</div>
+                    <div class="Active-conatiners">Active Cisco</div>
+                    <div class="Active-conatiners">Active Nortel</div>
+                    <div class="Active-conatiners">ED137 Recorder</div>
+                    <div class="Active-conatiners">Active NEC</div>
+                    <div class="Active-conatiners">Active BCM</div>
+                </div>
+                <div style="width: 40%;">
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveAvaya_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveCisco_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveNortel_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ED137Recorder" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveNEC_Value" type="number" min="0"></div>
+                    <div class="Active-conatiners"> <input (input)="recorder_values()" [(ngModel)]="ActiveBCM_Value" type="number" min="0"></div>
+                </div>
+            </div>
+
+            <!-- SMS -->
+            <div class="SMS" style="display: flex;">
+                <div class="input-SMS" style="background-color: var(--v4);">
+                    <input class="checkbox-SMS" type="checkbox" [(ngModel)]="isSMSChecked" (change)="SMS_status()">
+                </div>
+                <div class="SMS-label">SMS</div>
+            </div>
+            <!-- EMC Centera -->
+            <div class="EMC" style="display: flex;">
+                <div class="input-EMC" style="background-color: var(--v1);">
+                    <input class="checkbox-EMC" type="checkbox" [(ngModel)]="isEMCChecked" (change)="EMC_status()">
+                </div>
+                <div class="EMC-label">EMC Centera</div>
+            </div>
+            <!-- Screen Capture -->
+            <div class="Screen" style="display: flex;">
+                <div class="input-Screen" style="background-color: var(--v4);">
+                    <input class="checkbox-Screen" type="checkbox" [(ngModel)]="isScreenChecked" (change)="Screen_status()">
+                </div>
+                <div class="Screen-label">Screen Capture</div>
+            </div>
+            <!-- AQM -->
+            <div class="AQM" style="display: flex;">
+                <div class="input-AQM" style="background-color: var(--v1);">
+                    <input class="checkbox-AQM" type="checkbox" [(ngModel)]="isAQMChecked" (change)="AQM_status()">
+                </div>
+                <div class="AQM-label">AQM</div>
+            </div>
+            <!-- FAX -->
+            <div class="FAX" style="display: flex;">
+                <div class="input-FAX" style="background-color: var(--v4);">
+                    <input class="checkbox-FAX" type="checkbox"  [(ngModel)]="isFAXChecked" (change)="FAX_status()">
+                </div>
+                <div class="FAX-label">FAX</div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

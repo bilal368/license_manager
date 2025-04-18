@@ -1,0 +1,72 @@
+<div class="container">
+
+    <div class="row">
+        <div class="header-DealerCustomer">
+            <label>MANAGE REGION</label>
+            <mat-icon id="mat-icon" style="color: var(--v3);background-color: var(--v4);cursor: pointer;" (click)="closeDateSelector()">
+                close
+            </mat-icon>
+        </div>
+        <div class="license-button" style="padding:10px">
+            <button id="newuser" type="button" style="font-size: 14px;" (click)="new_region()">Add New Region</button>
+        </div>
+
+        <div style="height: 330px;overflow: auto;">
+            <table >
+                <thead>
+                    <th class="region">Region</th>
+                    <th class="empty"></th>
+                </thead>
+                <tbody>
+                    @if (addNewfieldStatus) {
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div style="display: flex;">
+                                      <mat-select 
+                                      style="width: 100%;border: 1px solid black;background-color: rgb(231, 228, 228);border-radius: 5px;height: 30px;padding: 3px;"
+                                       placeholder="Select Region" [(ngModel)]="selectedFlagRegion">
+                                        <mat-option (click)="$event.stopPropagation()" >
+                                          <div style="padding:4px">
+                                            <input type="text" placeholder="Search"
+                                            style="color: black;display: flex; justify-content: space-between; align-items: center;padding-left: 7px;
+                    padding-top: 2px;"
+                                            (click)="$event.stopPropagation()"
+                                            (input)="filter()" [(ngModel)]="searchFilter" [ngModelOptions]="{standalone: true}">
+                                          </div>
+                                        </mat-option>
+                                        @for (region of filteredData; track $index) {
+                                        <mat-option style="background-color:var(--v3) ;" [value]="region.name">{{region.name}}</mat-option>
+                                        }
+                                        </mat-select>
+                                    </div>
+                                  </div>
+
+                            </td>
+                            <td class="d-flex justify-content-end align-items-center">
+                                <button class="btn btn-sm m-1" (click)="AddRegion(selectedFlagRegion)"><mat-icon>save</mat-icon></button>
+                                <button class="btn btn-sm m-1" [disabled]="true"><mat-icon>delete</mat-icon></button>
+                            </td> 
+                        </tr>
+                       }
+                    @for (region of regions; track $index) {
+                        <tr>
+                           <td>{{ region.regionName }}</td> 
+                           <td class="d-flex justify-content-end align-items-center">
+                            <button class="btn btn-sm m-1" (click)="deleteRegion(region.regionId)"><mat-icon>delete</mat-icon></button>
+                           </td>                    
+                        </tr>             
+                        } 
+                       
+                    
+                </tbody>
+            </table>
+        </div>
+        <!-- <h3>Region</h3>
+        @for (region of regions; track $index) {
+        <div>
+            <div>{{region}}</div>
+        </div>
+        } -->
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<mat-toolbar style="height: 50px;background-color: var(--v1);">
+    <div class="daterange">
+        <!-- class="m-1 ovelButton" -->
+        <button mat-button [matMenuTriggerFor]="dateRangeMenu" style="width: 150px; height: 40px;">
+            <label style="color:var(--v2); font-size: 10px; position: absolute; top: -26px; left: -83px;">Selected
+                Date Range</label>
+            <label style="color:var(--v3); font-size: 16px; position: absolute; bottom: -24px;left: -84px;">{{
+                selectedateRange }}</label>
+            <mat-icon style="left: 62px; bottom: 3px; font-size: 24px;color: var(--v3);">arrow_drop_down
+            </mat-icon>
+        </button>
+        <mat-menu #dateRangeMenu="matMenu">
+            <div id="drop-down" mat-menu-item (click)="selectDateRange('This Month')">This Month</div>
+            <div id="drop-down" mat-menu-item (click)="selectDateRange('Last Month')">Last Month</div>
+            <div id="drop-down" mat-menu-item (click)="selectDateRange('This Quarter')">This Quarter</div>
+            <div id="drop-down" mat-menu-item (click)="selectDateRange('Last Quarter')">Last Quarter</div>
+            <div id="drop-down" mat-menu-item (click)="selectDateRange('This Year')">This Year</div>
+            <div id="drop-down" mat-menu-item (click)="selectDateRange('Last Year')">Last Year</div>
+        </mat-menu>
+    </div>
+    </mat-toolbar>
+
+<div class="data-container">
+    <div class="total-license">
+        <div class="license-value">
+            <div class="font-value" style="color:var(--v3);">{{totalLicense}}</div>
+        </div>
+        <div class="T1">
+            <!-- class="tab-license mt-2" -->
+            <label >TOTAL</label><br>
+            <label style="margin-left: -6px;">LICENSES</label>
+        </div>
+    </div>
+
+    <div class="licenseType">
+        <div class="tag-name">
+            <label style="color: var(--v3);">LICENSE TYPE</label>
+        </div>
+        <div class="type3">
+            <div class="font-value" style="color:var(--v3);">{{full_count}}</div>
+        </div>
+        <div class="T2">
+            <label>NEW</label>
+        </div>
+
+        <div class="type4">
+            <div class="font-value" style="color:var(--v3);">{{reissue_count}}</div>
+        </div>
+        <div class="T3">
+            <label>REISSUE</label>
+        </div>
+        <div class="type5">
+            <div class="font-value" style="color:var(--v3);">{{upgrade_count}}</div>
+        </div>
+        <div class="T4">
+            <label>UPGRADE</label>
+        </div>
+    </div>
+
+    <div class="customerType">
+        <div class="tag-customer">
+            <label style="color: var(--v3);">CUSTOMER TYPE</label>
+        </div>
+        <div class="type3">
+            <div class="font-value" style="color:var(--v3);">{{channelPartner}}</div>
+        </div>
+        <div class="T5">
+            <label>CHANNEL</label><br>
+            <label style=" margin-left: 1px;">PARTNER</label>
+        </div>
+        <div class="type4-partner">
+            <div class="font-value" style="color:var(--v3); margin-top: 1px;">{{reseller}}</div>
+        </div>
+        <div class="T6">
+            <label>RESELLER</label>
+        </div>
+        <div class="type5">
+            <div class="font-value" style="color:var(--v3);">{{endUser}}</div>
+        </div>
+        <div class="T7">
+            <label>END USER</label>
+        </div>
+    </div>
+
+    <div class="modules">
+        <div class="tag-customer">
+            <label style="color: var(--v3);">MODULES</label>
+        </div>
+        <div class="type3-modules">
+            <div class="font-value" style="color:var(--v3);">{{dgVox}}</div>
+        </div>
+        <div class="T8">
+            <label>RECORDING</label>
+        </div>
+        <div class="type4-modules">
+            <div class="font-value" style="color:var(--v3);">{{speechBill}}</div>
+        </div>
+        <div class="T9">
+            <label>ACCOUNTING</label>
+        </div>
+        <div class="type5-modules">
+            <div class="font-value" style="color:var(--v3);">{{both_count}}</div>
+        </div>
+        <div class="T10">
+            <label>BOTH</label>
+        </div>
+    </div>
+
+    <div class="environment">
+        <div class="tag-environment">
+            <label style="color: var(--v3);">ENVIRONMENT</label>
+        </div>
+        <div class="type3-environment">
+            <div class="font-value" style="color:var(--v3);">{{Windows}}</div>
+        </div>
+        <div>
+            <div class="T11">
+                <label>WINDOWS</label>
+            </div>
+        </div>
+        <div class="type4-environment">
+            <div class="font-value" style="color:var(--v3);">{{Linux}}</div>
+        </div>
+        <div class="T12">
+            <label>LINUX</label>
+        </div>
+    </div>
+
+</div>

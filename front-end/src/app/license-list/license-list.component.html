@@ -1,0 +1,224 @@
+<mat-toolbar style="height: 50px;background-color: var(--v1);">
+    <div class="license-container">
+        <div class="daterange">
+            <button mat-button [matMenuTriggerFor]="dateRangeMenu" class="m-1 ovelButton"
+                style="width: 150px; height: 40px;">
+                <label style="color:var(--v2); font-size: 10px; position: absolute; top: -26px; left: -83px;">Selected
+                    Date Range</label>
+                <label style="color:var(--v3); font-size: 16px; position: absolute; bottom: -22px;left: -84px;">{{
+                    selectedateRange }}</label>
+                <mat-icon style="left: 62px; bottom: 3px; font-size: 24px;color: var(--v3);">arrow_drop_down
+                </mat-icon>
+            </button>
+            <mat-menu #dateRangeMenu="matMenu">
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('This Month')">This Month</div>
+           
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('Last Month')">Last Month</div>
+          
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('This Quarter')">This Quarter</div>
+             
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('Last Quarter')" style="border-bottom: solid 1.5px var(--v4);">Last Quarter</div>
+              
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('This Year')">This Year</div>
+               
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('Last Year')">Last Year</div>
+              
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('Custom')">Custom</div>
+            </mat-menu>
+        </div>
+        <!-- <div class="license-filter"> -->
+            <!-- <button mat-button [matMenuTriggerFor]="ordernumber" class="m-1 ovelButton"
+                style="width: 195px; height: 40px;">
+                <label id="label1">Order
+                    Number</label>
+                <label id="lable-license-filter">PUR/SBS31/19-20 (+3)</label>
+                <mat-icon id="mat-icon">arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #ordernumber="matMenu">
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('This Month')">order list </div>
+            </mat-menu> -->
+        <!-- </div> -->
+
+        <!-- <div class="license-Customer-filter"> -->
+            <!-- <button mat-button [matMenuTriggerFor]="customername" class="m-1 ovelButton"
+                style="width: 195px; height: 40px;">
+                <label id="label2">Customer Name</label>
+                <label id="lable-license-filter1">SaveBySwitch...(+3)</label>
+                <mat-icon id="mat-icon">arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #customername="matMenu">
+                <div id="drop-down" mat-menu-item (click)="selectDateRange('This Month')">customer List </div>
+            </mat-menu> -->
+        <!-- </div> -->
+    </div>
+    <!-- <div class="Filter-container"> -->
+        <!-- <div id="Filter-button">
+            <label id="label3">Add Filter</label>
+            <mat-icon style="height: 20px; margin-left: 74px;">filter_alt</mat-icon>
+        </div> -->
+    <!-- </div> -->
+
+    <div class="Apply-container">
+        <!-- <div id="Apply-button">
+            <label id="label4">Apply Changes</label>
+        </div> -->
+    </div>
+</mat-toolbar>
+<div class="listlicense">
+    <div _ngcontent-ng-c3231245627="" class="line-setting"></div>
+    <div class="license-pdf">
+        <div class="search-container">
+            <input placeholder="Search" class="search" [(ngModel)]="searchValue_license" (input)="filterCustomer()">
+            <button aria-label="Search" class="search-button">
+              <mat-icon class="mat-icon-search">search</mat-icon>
+            </button>
+         
+        <div class="license-button">
+            <button id="newlicense" type="button" style="font-size: 14px;" (click)="new_license()">Create New License</button>
+        </div>
+    </div>
+        <div class="download-buttons" style="margin-right: 13px;">
+            <!-- <button id="PDF" type="button">
+                <mat-icon style="height: 16px;margin-left: -8px;margin-top: 7px;">
+                    file_download
+                </mat-icon>
+                <label id="label5">PDF</label>
+            </button> -->
+            <button id="XLS" type="button" (click)="downloadExcel()">
+                <mat-icon style="height: 16px;margin-left: -8px;margin-top: 7px;">
+                    file_download
+                </mat-icon>
+                <label id="label5">XLS</label>
+            </button>
+        </div>
+    </div>
+    <div class="license-list" style="background-color:#FFFFFF; overflow-x: auto;height: 300px;">
+        <div class="mat-elevation-z8" style="width: 98.5%;">
+            <table mat-table [dataSource]="dataSource" style="margin-left: 8px;" matSort (matSortChange)="announceSortChange($event)"
+       class="mat-elevation-z8">
+
+                <!-- date Column -->
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date"
+                        style="background-color: var(--v3); color: var(--v2);border-radius: 10px 0 0 10px;">DATE
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+
+                <!-- ordernumber Column -->
+                <ng-container [matColumnDef]="sortState?.active || 'ordernumber'">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-active="sortState.active === 'ordernumber'"
+                    sortActionDescription="Sort by ordernumber"
+                    style="background-color: var(--v3); color:var(--v2);">ORDER
+                        NUMBER
+                    </th>
+
+                    <td mat-cell *matCellDef="let element"> {{element.purchaseOrder}} </td>
+                </ng-container>
+
+                <!-- customername Column -->
+                <ng-container [matColumnDef]="sortState1?.active || 'customername'">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by customername">
+                        CUSTOMER</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Region -->
+                <ng-container matColumnDef="region">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol"
+                    style="text-align: center;">REGION</th>
+                    <td mat-cell *matCellDef="let element"
+                        [style.backgroundImage]="'url(../../assets/images/flag/' + element.region_svg_id + '.svg)'"
+                        style="background-size: contain; background-repeat: no-repeat; background-position: center; background-size: 4vh;">
+                        </td>
+                </ng-container>
+
+                <!-- Modules -->
+                <ng-container matColumnDef="modules">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                        MODULES </th>
+                    <td mat-cell *matCellDef="let element">
+                        @if (element.dgVox_status == 1 && element.speechBill_status == 1) {
+                        <mat-icon>
+                            voicemail
+                        </mat-icon>
+                        <span class="material-symbols-outlined">
+                            contract
+                            </span>
+                        }@else if (element.dgVox_status == 1) {
+                        <mat-icon>
+                            voicemail
+                        </mat-icon>
+                        }@else if (element.speechBill_status == 1) {
+
+                            <span class="material-symbols-outlined">
+                                contract
+                                </span>
+                        }
+
+                    </td>
+                </ng-container>
+
+                <!-- Type -->
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+                        TYPE</th>
+                    <td mat-cell *matCellDef="let element">
+                        @if (element.type == 'upgrade') {
+                        <mat-icon>
+                            upgrade
+                        </mat-icon>
+                        }@else if (element.type == 'new') {
+                        <mat-icon>
+                            autorenew
+                        </mat-icon>
+                        }@else if (element.type == 're-issue') {
+                        <mat-icon>
+                            track_changes
+                        </mat-icon>
+                        }
+
+                    </td>
+                </ng-container>
+
+                <ng-container [matColumnDef]="sortStatelicense?.active || 'license'">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"
+                    style="border-radius: 0 10px 10px 0;width: 100px;">LICENSE</th>
+                    <!-- {{element.licenseCode}}  -->
+                    <td mat-cell *matCellDef="let element">      
+                        <button class="btn btn-sm ms-3" (click)="copyPassword(element.licenseCode)"  matTooltip="Copy Password">    
+                        <span>{{ element.licenseCode | slice:0:5 }}***</span>
+                        <!-- <mat-icon>password</mat-icon> -->
+                        <mat-icon>content_copy</mat-icon>
+                        </button>
+                    </td>
+                    
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <!-- No data row -->
+                <ng-template matNoDataRow>
+                    <tr>
+                      <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                        <div class="no-data-message">No data available</div>
+                      </td>
+                    </tr>
+                  </ng-template>
+
+            </table>
+
+            <!-- <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons
+                aria-label="Select page of periodic elements"
+                style="background-color:  #EEF5ED;position: fixed; bottom: 0; left: 0; width: 100%;">
+            </mat-paginator> -->
+        </div>
+    
+    </div>
+    <div class="pagination-container">
+        <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons aria-label="Select page of periodic elements" style="background-color:#FFFFFF;">
+        </mat-paginator>
+    </div>
+</div>

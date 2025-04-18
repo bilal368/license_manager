@@ -1,0 +1,195 @@
+.custom-date-container{
+    /* background-color: #EEF5ED; */
+    background-color:var(--v2);
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.from-label,.to-label{
+    color: var(--v3);
+}
+#label-month{
+    padding-right: 6.2vh;
+}
+#label-month,
+#label-year{
+    color: var(--v4);
+    font-size: 16px;
+    margin-right: 7vh;
+    margin-right: 5.8vh;
+}
+#button-year{
+    border-radius: 5px;
+    background-color: var(--v9);
+    border: none;
+    margin-left: 12px;
+    padding: 0px 0px;
+}
+#button-month{
+    width: 18vh;
+    border-radius: 5px;
+    background-color: var(--v9);
+    border: none;
+    margin-left: 12px;
+    padding: 0px 0px;
+}
+#lable-license-filter{
+    color: var(--v3);
+    font-size: 16px;
+    padding-left: 7px;
+}
+#lable-license-month{
+    color: var(--v3);
+    font-size: 16px;
+    padding-right: 9px; 
+}
+
+.lower-container {
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+    gap: 5px; 
+    padding: 5px;
+}
+
+.cancel-button{
+    cursor: pointer;
+    background-color:var(--v10);
+    border: none;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    margin-right: 5px;
+}
+.set-button{
+    cursor: pointer;
+    background-color: var(--v3);
+    border: none;
+    border-radius: 15px;
+    width: 60px;
+    height: 30px;
+}
+/* Styles for dropdowns */
+/* .dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.dropdown-content {
+    margin-top: 0.2vh;
+    color: var(--v3);
+    display: none;
+    position: absolute;
+    background-color: var(--v9);
+    width: 19vh;
+    border-radius: 5px;
+    margin-left: 1.7vh;
+    z-index: 2;
+    overflow-y: auto;
+    height: 100px;
+}
+.dropdown-content a {
+    color: var(--v3);
+    padding: 0px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-content  {
+    display: block;
+}
+.dropdown-container{
+    margin-top: -3.3vh;
+    margin-left: 8vh;
+}
+.dropdown-to {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content-to {
+    margin-top: 0.2vh;
+    color: var(--v3);
+    display: none;
+    position: absolute;
+    background-color: var(--v9);
+    width: 19vh;
+    border-radius: 5px;
+    margin-left: 2vh;
+    overflow: scroll;
+    height: 60px;
+}
+.dropdown-content-to a {
+    color:  var(--v3);
+    padding: 0px 14px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-to:hover .dropdown-content-to {
+    display: block;
+}
+.dropdown-container-to{
+    margin-left: 5vh;
+    margin-top: -3vh;
+} */
+
+
+.header-custom{
+    display: flex;
+    background-color: var(--v3);
+    /* text-align: center; */
+    height: 50px;
+    width: 100%;
+    justify-content: space-between;
+}
+.contentDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+    gap: 20px; 
+    margin: 10px 0; 
+}
+
+.valueDivYear{
+    border-radius: 5px;
+    background-color: var(--v9);
+    /* border: none; */
+    /* margin-left: 12px;
+    padding: 0px 0px; */
+    width: 96px;
+    padding: 5px;
+    color: white;
+}
+
+.valueDiv{
+    border-radius: 5px;
+    background-color: var(--v9);
+    /* border: none; */
+    /* margin-left: 12px;
+    padding: 0px 0px; */
+    width: 140px;
+    padding: 5px;
+    color: white;
+
+}
+
+::ng-deep .mat-mdc-select-value-text {
+    color: var(--v3) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  ::ng-deep   .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: var(--v3) !important;
+}
+
+::ng-deep  .mat-mdc-select-panel .mat-mdc-option {
+    color: var(--v3) !important;
+}

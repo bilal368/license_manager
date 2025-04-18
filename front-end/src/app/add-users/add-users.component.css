@@ -1,0 +1,95 @@
+.header-DealerCustomer {
+    /* background-color: #52674F; */
+    background-color: var(--v3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header-DealerCustomer label {
+    color: var(--v4);
+}
+
+.create-Dealer-container {
+    background-color: var(--v2);
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+.main-conatiner {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dealer {
+    padding: 5px;
+}
+
+.btn {
+    background-color: var(--v3);
+}
+
+::ng-deep .goto-check .mat-pseudo-checkbox {
+    display: none !important;
+}
+
+.goto-check{
+    color: black;
+}
+
+  
+/* .custom-select-panel {
+    margin-top: 7px !important;
+    margin-left: -12px !important;
+    background: var(--v3) !important;
+  } */
+
+   /*:host ::ng-deep #custom-select-panel1 {
+    width: 100% !important;
+    max-height: 275px !important;
+    overflow: hidden;
+    outline: 0 !important;
+    /* overflow: auto !important; */
+    /* padding: 8px 0 !important;
+    border-radius: 4px !important; */
+    /* box-sizing: border-box !important;
+    position: static !important; */
+    /* background-color: var(--v3) !important; 
+    margin-top: 7px !important;
+    margin-left: -12px !important;
+    background: var(--v3) !important; 
+  }*/
+  
+  :host ::ng-deep .mat-mdc-select-arrow svg {
+    height: 30.2px;
+    width: 32px;
+    fill: currentColor;
+    position: absolute;
+    top: 93%;
+    left: -53%;
+    transform: translate(-50%, -50%);
+    background-color: var(--v3);
+}
+
+/* :host ::ng-deep .cdk-overlay-pane {
+    width: 100% !important;
+  }
+  
+  :host ::ng-deep #mat-select-6-panel {
+    width: 100% !important;
+    background-color: var(--v3);
+  } */
+
+  /* :host ::ng-deep .custom-select-panel {
+    background-color: var(--v3) !important;
+  } */
+  
+  /* :host ::ng-deep .mat-mdc-option {
+    background-color: var(--v3) !important;
+  } */
+  
+  
+  
+  

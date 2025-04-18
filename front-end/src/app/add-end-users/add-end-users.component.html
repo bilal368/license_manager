@@ -1,0 +1,111 @@
+<div class="create-Dealer-container">
+    <div class="header-DealerCustomer">
+        <label>Create New Customer</label>
+        <mat-icon id="mat-icon" style="color: var(--v3);background-color: var(--v4);cursor: pointer;" (click)="closeDateSelector()">
+            close
+        </mat-icon>
+    </div>
+    <div class="container-fluid row">
+        <div class="col-6">
+            <!-- Customer Name  -->
+            <div class="dealer">
+                <label>Customer Name</label> <br>
+                <input type="text" class="form-control" [(ngModel)]="customerName" name="dealerName" required >
+            </div>
+    
+            <!-- Address 1 -->
+            <div class="dealer">
+                <label>Address 1</label> <br>
+                <input type="text" class="form-control" [(ngModel)]="Address1" required>
+            </div>
+    
+            <!-- City -->
+            <div class="dealer">
+                <label>City</label> <br>
+                <input type="text" class="form-control" [(ngModel)]="CityName" required>
+            </div>
+    
+            <!-- Country -->
+            <div class="dealer" >
+                <label for="country">Country</label> <br>
+                <div style="display: flex;">
+                <mat-select class="country" [(ngModel)]="selectedregion" required
+                style="width: 92%;border: 1px solid black;background-color: rgb(255, 255, 255);border-radius: 5px;height: 30px;">
+                    <mat-select-trigger style="color: black;display: flex; justify-content: space-between; align-items: center;padding-left: 7px;padding-top: 2px;">
+                        {{ selectedregion || 'Select Country' }}               
+                    </mat-select-trigger>
+                    
+                    @for (region of regions; track $index) {
+                    <mat-option style="background-color: var(--v3);" [value]="region">{{ region }}</mat-option>
+                    }
+                    
+                </mat-select>
+                <mat-icon style="background-color: var(--v3);
+                color: white;
+                padding: 3px 3px;
+                height: 30px;
+                width: 29px;
+                margin-left: 2px;" (click)="new_region()">more_horiz</mat-icon>
+            </div>
+            </div>
+
+    
+            <!-- Contact Number -->
+            <div class="dealer">
+                <label>Contact Number</label> <br>
+                <input type="number" class="form-control" [(ngModel)]="ContactNumber" required>
+            </div>
+    
+            <!-- Email -->
+            <div class="dealer">
+                <label>Email</label> <br>
+                <input type="text" class="form-control" [(ngModel)]="Email" required>
+            </div>           
+        </div>
+       
+        <div class="col-6">  
+            <!-- Customer type -->
+            <div class="dealer">
+                <label for="customer-type">Customer type</label> <br>
+                <div style="display: flex;">
+                <mat-select disabled id="customer-type" style="background-color: rgb(239, 239, 239);" class="form-control" [(ngModel)]="selectedCustomerType" required>
+                    <mat-select-trigger style="color: black;display: flex; justify-content: space-between; align-items: center;">End User
+                        <!-- {{ selectedCustomerType || 'Select Customer Type' }} -->
+                    </mat-select-trigger>
+                    <mat-option style="background-color: var(--v3);" value="endUser">EndUser</mat-option>
+                    <!-- <option value="Reseller">Reseller</option> -->
+                </mat-select>
+            </div>
+        </div>
+    
+            <!-- Address 2 -->
+            <div class="dealer">
+                <label>Address 2</label> <br>
+                <input type="text" class="form-control" [(ngModel)]="Address2" required>
+            </div>
+    
+            <!-- State -->
+            <div class="dealer">
+                <label>State</label> <br>
+                <input type="text" class="form-control" [(ngModel)]="StateName" required>
+            </div>
+    
+            <!-- Alternate Contact Number -->
+            <div class="dealer">
+                <label for="">Alternate Contact Number</label> <br>
+                <input type="number" class="form-control" [(ngModel)]="AlternateNumber" required>
+            </div>
+    
+            <!-- Postal Code -->
+            <div class="dealer">
+                <label for="">Postal Code</label> <br>
+                <input type="number" class="form-control" [(ngModel)]="PostalCode" required>
+            </div>
+    
+        </div>
+    </div>
+    <div class="text-end" style="margin-right: 40px;">
+        <button class="btn btn-primary" type="submit" (click)="save()" [disabled]="!isValidForm()">
+            {{ isEditMode ? 'Update' : 'Save' }}
+        </button>
+    </div>

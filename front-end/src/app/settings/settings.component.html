@@ -1,0 +1,347 @@
+<div class="setting">
+  <mat-tab-group>
+
+    <!-- User -->
+    <mat-tab label="MANAGE USER">
+      <div class="manager-container">
+        <div _ngcontent-ng-c3231245627="" class="line-setting"></div>
+        <div class="sub-menu">
+          <div class="search-container">
+            <input placeholder="Search" class="search" class="search" [(ngModel)]="searchValue_user"
+              (input)="filterUsers()">
+            <button aria-label="Search" class="search-button">
+              <mat-icon class="mat-icon-search">search</mat-icon>
+            </button>
+          </div>
+          <div class="license-button">
+            <button id="newuser" type="button" style="font-size: 14px;" (click)="new_User()">Add New User</button>
+          </div>
+          <!-- <div class="license-button">
+            <button id="newuser" type="button" style="font-size: 14px;" (click)="new_region()">Add Region</button>
+          </div> -->
+          <div class="XLS" type="button" (click)="downloadExcel_users()">
+            <mat-icon style="height: 16px;">
+              file_download
+            </mat-icon>
+            <label id="label5">XLS</label>
+          </div>
+        </div>
+
+        <!-- Table for User -->
+        <div class="mat-elevation-z8" id="table-size">
+          <table mat-table [dataSource]="Users_dataSource">
+
+            <!-- User Column -->
+            <ng-container matColumnDef="User Name">
+              <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);border-radius: 5px 0px 0px 0px;"> Login Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+            </ng-container>
+
+            <!-- FirstLast Column -->
+            <ng-container matColumnDef="First Name">
+              <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> First Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+
+            <!-- LastName Column -->
+            <ng-container matColumnDef="Last Name">
+              <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Last Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+
+            <!-- Phone Column -->
+            <ng-container matColumnDef="Phone">
+              <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Phone </th>
+              <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+            </ng-container>
+
+            <!-- Email Column -->
+            <ng-container matColumnDef="Email">
+              <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.emailId}} </td>
+            </ng-container>
+
+            <!-- icons -->
+            <ng-container matColumnDef="icons">
+              <th mat-header-cell *matHeaderCellDef style="background-color: var(--v3);border-radius: 0px 5px 0px 0px;"> </th>
+              <td mat-cell *matCellDef="let element">
+                <button class="icon-container" mat-icon-button (click)="user_editItem(element)" style="width: 49%;">
+                  <mat-icon>edit_document</mat-icon>
+                </button>
+                <button class="icon-container" mat-icon-button (click)="delete_user(element.emailId)"
+                  style="width: 49%;">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="Users_displayed"></tr>
+            <tr mat-row *matRowDef="let row; columns: Users_displayed;"></tr>
+
+            <!-- No data row -->
+            <ng-template matNoDataRow>
+              <tr>
+                <td class="mat-cell" [attr.colspan]="Users_displayed.length">
+                  <div class="no-data-message">No data available</div>
+                </td>
+              </tr>
+            </ng-template>
+
+          </table>
+
+          <div class="pagination-container">
+            <mat-paginator #UsersPaginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons
+              aria-label="Select page of periodic elements" style="background-color:#FFFFFF;">
+            </mat-paginator>
+          </div>
+
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Dealer -->
+    <mat-tab label="DEALER">
+      <div _ngcontent-ng-c3231245627="" class="line-setting"></div>
+      <div class="Dealer-container">     
+        <div class="sub-menu">
+          <div class="search-container">
+            <input placeholder="Search" class="search" [(ngModel)]="searchValue_dealer" (input)="filterDealers()">
+            <button aria-label="Search" class="search-button">
+              <mat-icon class="mat-icon-search">search</mat-icon>
+            </button>
+          </div>
+          <div class="license-button">
+            <button id="newCustomer" type="button" style="font-size: 14px;" (click)="new_Customer()">Add New
+              Dealer</button>
+          </div>
+        </div>
+        <div class="XLS" type="button" (click)="downloadExcel()">
+          <mat-icon style="height: 16px;">
+            file_download
+          </mat-icon>
+          <label id="label5">XLS</label>
+        </div>
+      </div>
+
+      <!-- Table for dealer -->
+      <div class="mat-elevation-z8" id="table-size">
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- Dealer Column -->
+          <ng-container matColumnDef="Dealer Name">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);border-radius: 5px 0px 0px 0px;"> Dealer Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.CustomerName}} </td>
+          </ng-container>
+
+          <!-- Address Column -->
+          <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+          </ng-container>
+
+          <!-- City Column -->
+          <ng-container matColumnDef="City">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> City </th>
+            <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+          </ng-container>
+
+          <!-- Country Column -->
+          <ng-container matColumnDef="Country">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Country </th>
+            <td mat-cell *matCellDef="let element"> {{element.Country}} </td>
+          </ng-container>
+
+          <!-- Region Column -->
+          <ng-container matColumnDef="Type">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.Type}} </td>
+          </ng-container>
+
+          <!-- Phone Column -->
+          <ng-container matColumnDef="Phone">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.Phone}} </td>
+          </ng-container>
+
+          <!-- icons -->
+          <ng-container matColumnDef="icons">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);border-radius: 0px 5px 0px 0px;"> </th>
+            <td mat-cell *matCellDef="let element">
+              <button class="icon-container" mat-icon-button (click)="editItem(element)" style="width: 49%;">
+                <mat-icon>edit_document</mat-icon>
+              </button>
+              <button class="icon-container" mat-icon-button (click)="deleteItem(element.dealerCode)"
+                style="width: 49%;">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- No data row -->
+          <ng-template matNoDataRow>
+            <tr>
+              <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                <div class="no-data-message">No data available</div>
+              </td>
+            </tr>
+          </ng-template>
+
+        </table>
+
+        <div class="pagination-container">
+          <mat-paginator #dealerPaginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons
+            aria-label="Select page of periodic elements" style="background-color:#FFFFFF;">
+          </mat-paginator>
+        </div>
+
+      </div>
+    </mat-tab>
+
+    <!-- EndUser Customers -->
+    <mat-tab label="CUSTOMER">
+      <div class="customer-container">
+        <div _ngcontent-ng-c3231245627="" class="line-setting"></div>
+        <div class="sub-menu">
+          <div class="search-container">
+            <input placeholder="Search" class="search" [(ngModel)]="searchValue_customer" (input)="filterCustomer()">
+            <button aria-label="Search" class="search-button">
+              <mat-icon class="mat-icon-search">search</mat-icon>
+            </button>
+          </div>
+          <div class="license-button">
+            <button id="newCustomer" type="button" style="font-size: 14px;" (click)="new_Endusers()">Add New
+              Customer</button>
+          </div>
+          <div class="XLS" type="button" (click)="downloadExcel_endUsers()">
+            <mat-icon style="height: 16px;">
+              file_download
+            </mat-icon>
+            <label id="label5">XLS</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table for endUsers -->
+      <div class="mat-elevation-z8" id="table-size">
+        <table mat-table [dataSource]="endUsers_dataSource">
+
+          <!-- Dealer Column -->
+          <ng-container matColumnDef="Dealer Name">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);border-radius: 5px 0px 0px 0px;"> Customer Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.CustomerName}} </td>
+          </ng-container>
+
+          <!-- Address Column -->
+          <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+          </ng-container>
+
+          <!-- City Column -->
+          <ng-container matColumnDef="City">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> City </th>
+            <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+          </ng-container>
+
+          <!-- Country Column -->
+          <ng-container matColumnDef="Country">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Country </th>
+            <td mat-cell *matCellDef="let element"> {{element.Country}} </td>
+          </ng-container>
+
+          <!-- Region Column -->
+          <ng-container matColumnDef="Type">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.Type}} </td>
+          </ng-container>
+
+          <!-- Phone Column -->
+          <ng-container matColumnDef="Phone">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);"> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.Phone}} </td>
+          </ng-container>
+
+          <!-- icons -->
+          <ng-container matColumnDef="icons">
+            <th mat-header-cell *matHeaderCellDef class="custom-header" style="background-color: var(--v3);border-radius: 0px 5px 0px 0px;"> </th>
+            <td mat-cell *matCellDef="let element">
+              <button class="icon-container" mat-icon-button (click)="endUser_editItem(element)" style="width: 49%;">
+                <mat-icon>edit_document</mat-icon>
+              </button>
+              <button class="icon-container" mat-icon-button (click)="endUser_deleteItem(element.customerCode)"
+                style="width: 49%;">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- No data row -->
+          <ng-template matNoDataRow>
+            <tr>
+              <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                <div class="no-data-message">No data available</div>
+              </td>
+            </tr>
+          </ng-template>
+
+        </table>
+
+        <div class="pagination-container">
+          <mat-paginator #endUsersPaginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons
+            aria-label="Select page of periodic elements" style="background-color:#FFFFFF;">
+          </mat-paginator>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Change Password -->
+    <mat-tab label="CHANGE PASSWORD">
+      <div class="changepassword-container">
+        <div _ngcontent-ng-c3231245627="" class="line-setting"></div>
+        <div class="centerBox-container">
+          <div class="header-DealerCustomer">
+            <label>CHANGE YOUR PASSWORD</label>
+          </div>
+          <div class="form-fileds">
+            <div class="form-group">
+              <label for="old-password">Old Password</label><br>
+              <input type="password" id="old-password" name="old-password" placeholder="Old Password"
+                class="form-control" [(ngModel)]="oldPassword">
+            </div>
+            <div class="form-group">
+              <label for="new-password">New Password</label><br>
+              <input type="password" id="new-password" name="new-password" placeholder="New Password"
+                class="form-control" [(ngModel)]="newPassword" >
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Retype New Password</label><br>
+              <input type="password" id="confirm-password" name="confirm-password" placeholder="Retype New Password"
+                class="form-control" [(ngModel)]="confirmPassword" (input)="checkPasswordMismatch()">
+              @if (passwordMismatch) {
+              <div style="color: red;">Password Mismatch</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex justify-content-end" style="margin-right: 6px;">
+            <div class="mx-2">
+              <button class="btn btn-primary" type="button" (click)="clearFields()">CLEAR</button>
+            </div>
+            <div class="mx-2">
+              <button class="btn btn-primary" type="submit" (click)="changePassword()"
+                [disabled]="!isValidForm()">SET</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

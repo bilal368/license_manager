@@ -1,0 +1,49 @@
+@import 'material-icons/iconfont/material-icons.css';
+@import 'material-icons/iconfont/material-icons.scss';
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*color assigns*/
+:root {
+    /* --v1: #E0ECDE; */
+    --v1: #C9E1F5;
+    /* --v2: #EEF5ED;  */
+    --v2: #EFF8FF;
+    /* --v3: #52674F; */
+    --v3: #033A6C;
+    --v4: #ffff;
+    --v5: #CEDFCC;
+    --v6: black;
+    --v7: #70A22F;
+    --v8: #CCCCCC;
+    /* --v9: #AAC1A7; */
+    --v9: #C9E1F5;
+    --v10: #999999;
+    --v11: #22381e;
+    --v12: #5f8465;
+    --v13: #778F74;
+
+}

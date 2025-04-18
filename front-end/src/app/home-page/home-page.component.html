@@ -1,0 +1,71 @@
+<div class="login-container" (click)="event()">
+    <div class="top-left-container">
+        <img src="../../assets/images/leftTop.png" alt="Example Image" class="top-left-image">
+    </div>
+
+    <div class="center-box-container">
+        <mat-toolbar style="background-color: var(--v9);">
+            <img src="../../assets/images/LogoDGvox.png" alt="Example Image" id="log-img">
+            <div class="sidenav-options">
+                <ng-container>
+                    @if (ReportStatus) {
+                    <div style="cursor: pointer;" class="build-div1" (click)="divFunction('dashboard')"
+                        [ngStyle]="{'background-color': buildDiv === 'dashboard' ? 'var(--v3)' : '','color': buildDiv === 'dashboard' ? 'var(--v4)' : ''}">
+                        <label  class="tab-text">DASHBOARD</label>
+                    </div>
+                }
+                </ng-container>
+                <ng-container>
+                    @if (LicenseStatus) {
+                    <div style="cursor: pointer;" class="build-div2" (click)="divFunction('license')"
+                        [ngStyle]="{'background-color': buildDiv === 'license' ? 'var(--v3)' : '','color': buildDiv === 'license' ? 'var(--v4)' : ''}">
+                        <label class="tab-text">LICENSE</label>
+                    </div>
+                }
+                </ng-container>
+                <ng-container>
+                    @if (SettingStatus) {
+                    <div style="cursor: pointer;" class="build-div3" (click)="divFunction('settings')"
+                        [ngStyle]="{'background-color': buildDiv === 'settings' ? 'var(--v3)' : '','color': buildDiv === 'settings' ? 'var(--v4)' : ''}">
+                        <label class="tab-text">SETTINGS</label>
+                    </div>
+                }
+                </ng-container>
+            </div>
+            
+            <span class="example-spacer"></span>
+            <label style="margin-right: 10px;">{{userName}}</label>
+            <div class="account_box-container" (click)="toggleLogout()" style="cursor: pointer;" >
+                
+                <img src="../../assets/images/account_logo.png" alt="Example Image" id="accountbox">            
+                @if (showLogoutButton) {
+                    <div id="logout">
+                    <button class="btn btn-dark btn-lg fs-4"   type="button" (click)="logout()">Logout</button>
+                </div>
+                }              
+            </div>
+            
+            <!-- <div class="account_box-container" (click)="useraccess()">
+                <img src="../../assets/images/account_logo.png" alt="Example Image" id="accountbox">
+            </div> -->
+        </mat-toolbar>
+        <div class="line"></div>
+        <div class="main-container">
+            @if (buildDiv === 'dashboard') {
+                <app-dashboard></app-dashboard>
+            } @else if (buildDiv === 'license') {
+                <app-license-list></app-license-list>
+            } @else if (buildDiv === 'settings') {
+                <app-settings></app-settings>
+            }
+        </div>
+       
+        <!-- <div class="center-box-container">
+        <button id="logout" type="button"(click)="logout()">Logout</button>
+    </div> -->
+
+    </div>
+    <div class="bottom-right-container">
+        <img src="../../assets/images/Bottomright.png" alt="Example Image" class="bottom-right-image">
+    </div>
+</div>

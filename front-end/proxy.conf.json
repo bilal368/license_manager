@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "http://localhost:3005",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/license": {
+    "target": "http://localhost:3005",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

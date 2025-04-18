@@ -1,0 +1,71 @@
+.header-DealerCustomer label {
+    color: var(--v4);
+}
+
+.header-DealerCustomer {
+    /* background-color: #52674F; */
+    background-color: var(--v3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.btn {
+    background-color: var(--v3);
+    color: #ffff !important;
+}
+
+#newuser {
+    height: 30px;
+    /* width: 109px; */
+    border-radius: 15px;
+    background-color: var(--v3);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* margin-left: -90px;
+    margin-top: 13px; */
+    border: 1px solid var(--v3);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    background-color: var(--v3);
+    color: white;
+    border-radius: 5px;
+}
+.region{
+    border-radius: 5px 0px 0px 0px;
+}
+.empty{
+    border-radius: 0px 5px 0px 0px;
+}
+th {
+    
+    padding: 5px;
+}
+
+td {
+    padding: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--v2);
+}
+
+tr:nth-child(even) {
+    background-color: var(--v1);
+}
+
+
+:host ::ng-deep .mat-mdc-select-value-text {
+    /* white-space: nowrap;
+    overflow: hidden; */
+    color: black !important;
+}

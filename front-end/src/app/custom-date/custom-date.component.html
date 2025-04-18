@@ -1,0 +1,84 @@
+<div class="custom-date-container">
+    <div class="header-custom p-1">
+        <label class="label" style="color: var(--v4);padding: 6px;">Select Custom Date Range</label>
+        <mat-icon id="mat-icon" style="color: var(--v3);background-color: var(--v4);cursor: pointer;"
+            (click)="closeDateSelector()">
+            close
+        </mat-icon>
+    </div>
+    <div class="contentDiv">
+        <div class="d-flex">
+            <div>FROM</div>
+            <div>
+                <div class="valueDivYear">
+                    <label>Year</label>
+                    <mat-select [(ngModel)]="fromSelectYear">                  
+                        @for (year of years; track $index) {
+                        <mat-option style="color: var(--v3);" [value]="year" (click)="selectYear_from(year)" > {{ year }} </mat-option>
+                        }
+                    </mat-select>
+                </div>
+            </div>
+            <div>
+                <div class="valueDiv">
+                    <label>Month</label>
+                    <mat-select [(ngModel)]="fromSelectMonth">
+                        <mat-option (click)="selectMonth('January')" value="January">January</mat-option>
+                        <mat-option (click)="selectMonth('February')" value="February">February</mat-option>
+                        <mat-option (click)="selectMonth('March')" value="March">March</mat-option>
+                        <mat-option (click)="selectMonth('April')" value="April">April</mat-option>
+                        <mat-option (click)="selectMonth('May')" value="May">May</mat-option>
+                        <mat-option (click)="selectMonth('June')" value="June">June</mat-option>
+                        <mat-option (click)="selectMonth('July')" value="July">July</mat-option>
+                        <mat-option (click)="selectMonth('August')" value="August">August</mat-option>
+                        <mat-option (click)="selectMonth('September')" value="September">September</mat-option>
+                        <mat-option (click)="selectMonth('October')" value="October">October</mat-option>
+                        <mat-option (click)="selectMonth('November')" value="November">November</mat-option>
+                        <mat-option (click)="selectMonth('December')" value="December">December</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div>TO</div>
+            <div style="margin-left: 20px;">
+                <div class="valueDivYear">
+                    <label>Year</label>
+                    <mat-select [(ngModel)]="toSelectYear">
+                        @for (year of years; track $index) {
+                            <mat-option [value]="year" (click)="selectYear_from(year)"> {{ year }}</mat-option>
+                            }
+                    </mat-select>
+                </div>
+            </div>
+            <div>
+                <div class="valueDiv">
+                    <label>Month</label>
+                    <mat-select [(ngModel)]="toSelectMonth">
+                        <mat-option (click)="selectMonth('January')" value="January">January</mat-option>
+                        <mat-option (click)="selectMonth('February')" value="February">February</mat-option>
+                        <mat-option (click)="selectMonth('March')" value="March">March</mat-option>
+                        <mat-option (click)="selectMonth('April')" value="April">April</mat-option>
+                        <mat-option (click)="selectMonth('May')" value="May">May</mat-option>
+                        <mat-option (click)="selectMonth('June')" value="June">June</mat-option>
+                        <mat-option (click)="selectMonth('July')" value="July">July</mat-option>
+                        <mat-option (click)="selectMonth('August')" value="August">August</mat-option>
+                        <mat-option (click)="selectMonth('September')" value="September">September</mat-option>
+                        <mat-option (click)="selectMonth('October')" value="October">October</mat-option>
+                        <mat-option (click)="selectMonth('November')" value="November">November</mat-option>
+                        <mat-option (click)="selectMonth('December')" value="December">December</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lower-container">
+        <button class="cancel-button" (click)="closeDateSelector()">
+            <label class="cancel-label" style="color: var(--v4);">CANCEL</label>
+        </button>
+        <button class="set-button" (click)="setdate()">
+            <label class="set-label" style="color: var(--v4);">SET</label>
+        </button>
+    </div>
+
+</div>

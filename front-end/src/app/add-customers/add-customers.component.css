@@ -1,0 +1,54 @@
+.header-DealerCustomer {
+    background-color: var(--v3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header-DealerCustomer label {
+    color: var(--v4);
+}
+
+.create-Dealer-container {
+    background-color:var(--v2);
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+.main-conatiner{
+        display: flex;
+        justify-content: space-evenly;
+}
+
+.dealer{
+    padding: 5px;
+}
+
+.btn{
+    background-color: var(--v3);
+}
+
+#icon-style{
+    margin-right: 34px;
+    margin-top: 18px;
+    background-color: var(--v3);
+    color: white;
+    border-radius: 4px;
+    position: absolute;
+    transform: translateY(-50%);
+    right: 8px;
+}
+
+:host ::ng-deep .mat-mdc-select-arrow svg {
+    height: 30px;
+    width: 32px;
+    fill: currentColor;
+    position: absolute;
+    top: 80%;
+    left: -51%;
+    transform: translate(-50%, -50%);
+    background-color: var(--v3);
+}
+

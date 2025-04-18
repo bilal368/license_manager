@@ -1,0 +1,37 @@
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366;
+    color: white;
+    padding: 6px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  .close-button {
+    color: #003366;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .cancel-button, .confirm-button {
+    background-color: #003366; /* Adjust the color to match the button */
+    color: white;
+    margin: 0 8px;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+  
+  .cancel-button:hover, .confirm-button:hover {
+    background-color: #002244; /* Slightly darker shade for hover effect */
+  }
+  
+  .dialog-actions button {
+    width: 100px; /* Adjust button width */
+  }
+  

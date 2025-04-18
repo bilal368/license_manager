@@ -1,0 +1,371 @@
+<div class="create-license-container" (click)="handleClick($event)">
+    <div class="header-CreateLicense">
+        <label>Create New License</label>
+        <mat-icon id="mat-icon" style="color: var(--v3);background-color: var(--v4);cursor: pointer;"
+            (click)="closeDateSelector()">
+            close
+        </mat-icon>
+    </div>
+    <div class="body-container" style="display: flex;">
+        <!-- Request Type -->
+        <div class="type-conatiner" [ngClass]="{ 'read-only': nextButtonClicked }">
+            <label id="request-label">Request Type</label>
+            <div class="type-drop-down" style="margin-left: 23px;">
+                <button id="production-button" class=" productionButton" (click)="toggleDropdown()">
+                    <label id="selected-request">{{selectedtype}}</label>
+                    <mat-icon id="arrow_drop_down" style="color: rgb(255, 255, 255)">arrow_drop_down</mat-icon>
+                </button>
+                <div class="dropdown-types" [ngClass]="{ 'show-dropdown': dropdownOpen }">
+                    <a style="border-bottom: solid 1px  var(--v3);" class="dropdown-item"
+                        (click)="selectedType('PRODUCTION')">PRODUCTION</a>
+                    <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                        (click)="selectedType('DEMO')">DEMO</a>
+                </div>
+            </div>
+        </div>
+        <!-- License Type -->
+        <div class="license-type-conatiner" [ngClass]="{ 'read-only': nextButtonClicked }">
+            <label id="license-label">License Type</label>
+            <div class="type-drop-down" style="margin-left: 23px;">
+                <button id="production-button" class=" productionButton" (click)="toggleDropdownlicense()">
+                    <label id="selected-license">{{selectedlicense}}</label>
+                    <mat-icon id="arrow_drop_down" style="color: rgb(255, 255, 255)">arrow_drop_down</mat-icon>
+                </button>
+                <div class="dropdown-types" [ngClass]="{ 'show-dropdown': dropdownOpenlicense }">
+                    <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                        (click)="selectedLicense('NEW')">NEW</a>
+                    <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                        (click)="selectedLicense('RE-ISSUE')">RE-ISSUE</a>
+                    <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                        (click)="selectedLicense('UPGRADE')">UPGRADE</a>
+                </div>
+            </div>
+        </div>
+        <!-- Reissue or upgrade -->
+        @if (selectedlicense != 'NEW' ) {
+        <div class="search-container">
+            <label id="search-label">Search</label>
+            <div class="search-drop-down" [ngClass]="{ 'read-only': nextButtonClicked }">
+                <button id="production-button" class="productionButton" (click)="toggleDropdownsearch()">
+                    <label id="selected-search">{{selectedsearch}}</label>
+                    <mat-icon id="arrow_drop_down" style="color: rgb(255, 255, 255)">arrow_drop_down</mat-icon>
+                </button>
+                <div class="dropdown-types" [ngClass]="{ 'show-dropdown': dropdownOpensearch }">
+                    <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                        (click)="selectedSearch('LICENSE')">LICENSE</a>
+                    <!-- <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                        (click)="selectedSearch('PO')">PO</a> -->
+                </div>
+            </div>
+        </div>
+        <div class="search-input-container" [ngClass]="{ 'read-only': nextButtonClicked }">
+            <input type="text" class="form-control" placeholder="Search" required name="searchField"
+                [(ngModel)]="searchValue" (input)="onInputChange()">
+            <mat-icon class="material-symbols-outlined">
+                data_loss_prevention
+            </mat-icon>
+        </div>
+
+        <div class="next-button" [ngClass]="{ 'read-only': EnablesubmitClicked }">
+            <button id="next-button" type="button" [disabled]="!searchValue"
+                (click)="isFirstNextClicked ? submit() : (isUpdateClicked ? update() : next())">
+                {{ isFirstNextClicked ? 'Submit' : (isUpdateClicked ? 'Update' : 'Next') }}
+                <mat-icon class="material-symbols-outlined">chevron_right</mat-icon>
+            </button>
+
+        </div>
+
+        }
+        
+        @else {
+            <div style="margin-top: 30px;margin-left: 18px;" [ngClass]="{ 'read-only': nextButtonClicked }">
+                <input type="text" class="form-control" placeholder="Token to decrpyt" required name="searchField"
+                    [(ngModel)]="searchValueToken" >
+                <mat-icon class="material-symbols-outlined">
+                    data_loss_prevention
+                </mat-icon>
+            </div>
+
+        <div class="next-button" [ngClass]="{ 'read-only': EnablesubmitClicked }">
+            <button id="next-button" type="button" (click)="isFirstNextClicked ? submit() : next()">
+                {{ isFirstNextClicked ? 'Submit' : 'Next' }}
+                <mat-icon class="material-symbols-outlined">chevron_right</mat-icon>
+            </button>
+        </div>
+        }
+    </div>
+    @if (nextpage == 0) {
+    <!-- System Dropdown -->
+    <div class="system-container">
+        <label id="system-name">System</label>
+        <div class="custom-select" style="width:200px;">
+            <button id="custom-button" class=" productionButton" (click)="toggleDropdownSystem()">
+                <label id="selected-request">{{selectedSystem}}</label>
+                <mat-icon id="arrow_drop_down" style="color: rgb(255, 255, 255)">arrow_drop_down</mat-icon>
+            </button>
+            <div class="dropdown-system" [ngClass]="{ 'show-dropdown': dropdownOpenSystem }">
+                <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                    (click)="selectedsystem('WINDOWS')">WINDOWS</a>
+                <a style="border-bottom: solid 1px var(--v3);" class="dropdown-item"
+                    (click)="selectedsystem('LINUX')">LINUX</a>
+            </div>
+        </div>
+    </div>
+
+    @if (selectedtype == 'DEMO') {
+    <div class="DEMO-containers">
+        <label>Expiry in days</label>
+        <div>
+            <input type="number" [(ngModel)]="expiryDays" min="0" max="9999" style="width: 119px;
+            height: 26px;">
+        </div>
+    </div>
+    }
+
+    <div class="AMC">
+        <div class="input-AMC">
+            <input class="checkbox-AMC" type="checkbox" [(ngModel)]="isChecked" (change)="onCheckboxChange($event)">
+        </div>
+        <div class="AMC-label">AMC</div>
+        @if (showDatePicker) {
+        <div class="date-picker">
+            <mat-form-field>
+                <input matInput [matDatepicker]="fromDatepicker" placeholder="From Date" [min]="minDate" [max]="maxDate"
+                    [(ngModel)]="fromDate" (ngModelChange)="onFromDateChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="fromDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #fromDatepicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="toDatepicker" placeholder="To Date" [min]="minDate" [max]="maxDate"
+                    [(ngModel)]="toDate" (ngModelChange)="onToDateChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="toDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #toDatepicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        }
+    </div>
+
+    }
+
+    @if (nextpage == 1) {
+    <div class="license-details">
+        <div class="coloum-customer">
+            <!-- Mac address -->
+            <div class="Mac-container">
+                <label>Serial Key</label>
+                <input id="Mac-button" class=" productionButton" (input)="Macdetails();  updateFirstNextClicked()"
+                    [(ngModel)]="macAddress" required>
+            </div>
+            <!-- Active Directory -->
+            <div class="Active-container">
+                <label>Active Directory</label>
+                <button id="Active-button" class=" productionButton" (click)="toggleActiveDirectory()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="active-directory-status">{{ activeDirectoryEnabled ? 'Enabled' : 'Disabled'
+                            }}</label>
+                        <mat-icon id="arrow_active_directory" style="color: var(--v3)">{{ activeDirectoryEnabled ?
+                            'toggle_on' : 'toggle_off' }}</mat-icon>
+                    </div>
+                </button>
+            </div>
+            <!-- dealer name -->
+            <div class="dealer-container" [ngClass]="{'dealer-container-relative': showDropdown_dealer}">
+                <label id="dealer-name">Dealer name</label>
+                <button id="dealer-button" class=" productionButton" (click)="toggleDropdown_dealer()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="selected-dealer">{{ selectedDealer }}</label>
+                        <mat-icon id="arrow_dealer_name" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+                <div class="dropdown-dealer" [ngClass]="{ 'show-dropdown': showDropdown_dealer }">
+                    <input type="text" [(ngModel)]="searchValue_dealer" (mousedown)="handledealerTouch($event)"
+                        (input)="filterDealers()">
+                    @for (dealer of dealers; track $index) {
+                    <a style="cursor: pointer;" (click)="selectDealer(dealer)" class="dropdown-item">{{ dealer }}</a>
+                    }
+                </div>
+            </div>
+            @if (userType == 'Channel Partner') {
+            <div class="checkbox-container" style="margin-left: 10px;">
+                <input type="checkbox" [(ngModel)]="showResellersList">
+                <label style="color: var(--v3);">Reseller List</label>
+            </div>
+            @if (showResellersList && userType === 'Channel Partner') {
+            <div class="resellers-container" (ngSubmit)="resellersdetails()"
+                [ngClass]="{'reseller-container-relative': showDropdown_reseller}">
+                <label id="reseller">Resellers Name</label>
+                <button id="reseller-button" class=" productionButton" (click)="toggleDropdown_reseller()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="selected-reseller">{{ selectedResellers }}</label>
+                        <mat-icon id="arrow_reseller_name" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+                <div class="dropdown-reseller" [ngClass]="{ 'show-dropdown': showDropdown_reseller }">
+                    <input type="text" [(ngModel)]="searchValue_reseller" (mousedown)="handleresellerTouch($event)"
+                        (input)="filterReseller()">
+                    @for (reseller of resellers; track $index) {
+                    <a style="cursor: pointer;" (click)="selectReseller(reseller)" class="dropdown-item">{{ reseller
+                        }}</a>
+                    }
+                </div>
+            </div>
+            }
+            }
+
+            <!-- customer name -->
+            <div class="customer-container" [ngClass]="{'customer-container-relative': showDropdown_customer}">
+                <label id="customer-name">Customer name</label>
+                <button id="customer-button" class=" productionButton" (click)="toggleDropdown_customer()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="selected-customer">{{selectedCustomer}}</label>
+                        <mat-icon id="arrow_customer_name" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+                <div class="dropdown-customer" [ngClass]="{ 'show-dropdown': showDropdown_customer }">
+                    <input type="text" [(ngModel)]="searchValue_customer" (mousedown)="handlecustomerTouch($event)"
+                        (input)="filterCustomer()">
+                    @for (customer of customers; track $index) {
+                    <a style="cursor: pointer;" (click)="selectCustomer(customer)" class="dropdown-item">{{ customer
+                        }}</a>
+                    }
+                </div>
+            </div>
+            <!-- Product order -->
+            <div class="Product-container">
+                <label id="Product-name">PO name</label>
+                <input id="Product-button" class=" productionButton" (input)="podetails(); updateFirstNextClicked()"
+                    [(ngModel)]="productName">
+            </div>
+            <!-- Product Date -->
+            <div class="product-date-container">
+                <label id="product-date-name">PO Date</label>
+                <input type="date" id="Product-date" [(ngModel)]="dateValue" [value]="getCurrentDate()"
+                    (input)="dateChanged($event)">
+            </div>
+            <!-- Region -->
+            <div class="region-container" [ngClass]="{'region-container-relative': showDropdown_region}">
+                <label id="region-name">Region</label>
+                <button id="region-button" class=" productionButton" (click)="toggleDropdown_region()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="selected-region">{{selectedregion}}</label>
+                        <mat-icon id="arrow_region_name" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+                <div class="dropdown-region" [ngClass]="{ 'show-dropdown': showDropdown_region }">
+                    <input type="text" [(ngModel)]="searchValue_region" (mousedown)="handleregionTouch($event)"
+                        (input)="filterRegion()">
+                    @for (region of regions; track $index) {
+                    <a style="cursor: pointer;" (click)="selectRegion(region)" class="dropdown-item">{{ region }}</a>
+                    }
+                </div>
+            </div>
+            <!-- Modules -->
+            <div class="modules-container" [ngClass]="{'modules-container-relative': showDropdown_modules}">
+                <label id="modules-name">Modules</label>
+                <button id="modules-button" class=" productionButton" (click)="toggleDropdown_modules()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="selected-modules">{{selectedmodule}}</label>
+                        <mat-icon id="arrow_modules_name" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+                <div class="dropdown-modules" [ngClass]="{ 'show-dropdown': showDropdown_modules }">
+                    <a style="cursor: pointer;" (click)="selectModule('Recorder & Accounting')"
+                        class="dropdown-item">Recorder & Accounting</a>
+                    <a style="cursor: pointer;" (click)="selectModule('Recorder')" class="dropdown-item">Recorder</a>
+                    <a style="cursor: pointer;" (click)="selectModule('Accounting')"
+                        class="dropdown-item">Accounting</a>
+                </div>
+            </div>
+            <!-- Version -->
+            <div class="Version-container" [ngClass]="{'Version-container-relative': showDropdown_Version}">
+                <label id="Version-name">Version</label>
+                <button id="Version-button" class=" productionButton" (click)="toggleDropdown_Version()">
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <label id="selected-Version">{{selectedVersion}}</label>
+                        <mat-icon id="arrow_Version" style="color: var(--v3)">arrow_drop_down</mat-icon>
+                    </div>
+                </button>
+                <div class="dropdown-Version" [ngClass]="{ 'show-dropdown': showDropdown_Version }">
+                    @for (Version of Versions; track $index) {
+                    <a style="cursor: pointer;" (click)="selectVersion(Version)" class="dropdown-item">{{ Version }}</a>
+                    }
+                </div>
+            </div>
+            <!-- Machine Count -->
+            <div class="machine-count-container">
+                <label id="machine-count-name">Machine Count</label>
+                <input type="number" min="0" id="machine-count-button" class=" productionButton"
+                    [(ngModel)]="machineCount" (input)="machinecount($event); updateFirstNextClicked()">
+            </div>
+        </div>
+
+        <!-- License Colounm -->
+        <div class="coloum-license">
+            @if (!loading) {
+                <app-recorder-license
+                [fromaddLicense]="[selectedmodule,Features,backvalues,backaccoundingvalues]">
+            </app-recorder-license>
+       
+            }
+             </div>
+
+    </div>
+    <div class="back-button">
+        <button id="back-button-ok" type="button" (click)="backclick()">
+            <mat-icon class="material-symbols-outlined">
+                chevron_left
+            </mat-icon>
+            Back
+        </button>
+    </div>
+    }
+    @else if (nextpage == 2) {
+    <div class="basic-feature" style="overflow: auto;height: 320px;padding: 10px;">
+        <section class="example-section">
+            <span class="example-list-section">
+                <mat-checkbox class="example-margin" [checked]="allComplete" [indeterminate]="someComplete()"
+                    (change)="setAll($event.checked)">
+                    Select All
+                </mat-checkbox>
+            </span>
+            <span class="example-list-section">
+                <div class="checkbox-grid">
+                    @for (packageName of featuresByPackage | keyvalue; track $index ) {
+                    <div>
+                        <h3>{{ packageName.key }}</h3>
+                        <!-- Iterate over features for this package -->
+                        <div class="feature-column">
+                            @for (feature of packageName.value; track $index) {
+                            <mat-checkbox [(ngModel)]="feature.completed" (ngModelChange)="updateAllComplete(feature)">
+                                {{ feature.basicFeatureName }}
+                            </mat-checkbox>
+                            }
+                        </div>
+                    </div>
+                    }
+                </div>
+            </span>
+        </section>
+    </div>
+    <div class="back-button">
+        <button id="back-button-ok" type="button" (click)="backclick()">
+            <mat-icon class="material-symbols-outlined">
+                chevron_left
+            </mat-icon>
+            Back
+        </button>
+    </div>
+
+    }
+    @else {
+    <div class="back-button">
+        <button id="back-button" type="button" (click)="backclick()">
+            <mat-icon class="material-symbols-outlined">
+                chevron_left
+            </mat-icon>
+            Back
+        </button>
+    </div>
+    }
+</div>
